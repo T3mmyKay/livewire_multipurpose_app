@@ -30,7 +30,9 @@
                         </div>
                         <div class="card-body">
                             <form wire:submit.prevent='addAppointment' autocomplete="off">
-                                <div class="form-group">
+<div class="row">
+    <div class="col-6">
+<div class="form-group">
                                     <label for="name">Client</label>
                                     <select id="" class="form-control" wire:model.defer='state.client_id'>
                                         <option value="">...Select A Client</option>
@@ -40,6 +42,17 @@
                                     </select>
 
                                 </div>
+</div>
+<div class="col-6">
+    <label for="name">Status</label>
+    <select id="" class="form-control" wire:model.defer='state.client_id'>
+        <option value="">...Select A Client</option>
+        @foreach ($clients as $client)
+        <option value="{{ $client->id }}">{{ $client->name }}</option>
+        @endforeach
+    </select>
+</div>
+</div>
 
                                 {{-- <div class="row">
                                     <div class="col-md-6">
